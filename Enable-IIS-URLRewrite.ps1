@@ -6,6 +6,7 @@ param (
  .SYNOPSIS
  Configure IIS to re-write all HTTP requests to HTTPS without any interaction from the client.
  .DESCRIPTION
+ NOTE: This script must be run from a PowerShell session with elevated permission.
  This script has been tested on Server 2008R2 SP1, Server 2012 R2, and Server 2016. T
 	-Installs IIS Web Platform Installer
 	-Installs IIS URL Rewrite add-on from https://www.iis.net/downloads/microsoft/url-rewrite
