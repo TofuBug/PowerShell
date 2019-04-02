@@ -1,10 +1,5 @@
 #Requires -Version 5.1
 [CmdletBinding()]
-param (
-    [parameter(Mandatory=$false)][Switch]$RunNow
-    )
- 
-function Harden-WindowsServer() {
  <#
  .SYNOPSIS
  Set minimum security settings for Windows Server 2k8R2-2k16
@@ -25,6 +20,11 @@ NOTE: Windows Server 2008 R2 ships with Windows Management Framework (WMF) 2.0, 
  .PARAMETER RunNow
  Execute the Script Now
  #>
+param (
+    [parameter(Mandatory=$false)][Switch]$RunNow
+    )
+ 
+function Harden-WindowsServer() {
 try {
     $key = (Get-Item HKLM:\).OpenSubKey('SYSTEM\CurrentControlSet\Control\Terminal Server\WinStations\RDP-Tcp', $true).SetValue("SecurityLayer",2,"DWord")
     $key = (Get-Item HKLM:\).OpenSubKey('SYSTEM\CurrentControlSet\Control\Terminal Server\WinStations\RDP-Tcp', $true).SetValue("MinEncryptionLevel",3,"DWord")
